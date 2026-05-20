@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="xat-space-container">
+    <div class="xat-space-container" onclick="activarMusicaFondo()">
 
         <div class="xat-stars"></div>
 
@@ -21,12 +21,6 @@
             <div class="xat-divider">
                 <div class="xat-diamond"></div>
             </div>
-        </div>
-
-        <div class="xat-player-zone">
-            <button class="xat-glow-play-btn" onclick="botonPlay(event)" title="Escuchar Música">
-                <div class="xat-play-triangle"></div>
-            </button>
         </div>
 
         <iframe id="xat-player"
@@ -44,14 +38,17 @@
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
         var player;
+        var musicaIniciada = false;
+
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('xat-player');
         }
 
-        function botonPlay(event) {
-            event.stopPropagation(); 
-            if (player && typeof player.playVideo === 'function') {
+        // Esta función se activa al hacer un clic en cualquier parte del fondo azul
+        function activarMusicaFondo() {
+            if (!musicaIniciada && player && typeof player.playVideo === 'function') {
                 player.playVideo();
+                musicaIniciada = true; // Evita que se recargue el play en futuros clics
             }
         }
     </script>
