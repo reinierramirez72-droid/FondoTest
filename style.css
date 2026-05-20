@@ -22,6 +22,7 @@ body, html {
     align-items: center;
     overflow: hidden;
     z-index: 1;
+    cursor: pointer; /* Muestra la mano para invitar sutilmente al usuario a hacer clic */
 }
 
 /* EFECTO DE ESTRELLAS FIJAS EN EL FONDO ORIGINAL */
@@ -42,7 +43,6 @@ body, html {
 .xat-center-block {
     position: relative;
     z-index: 10;
-    margin-bottom: 20px;
 }
 
 /* TIPOGRAFÍA DE "REI" CON DESTELLO NEÓN DEL PRIMER DISEÑO */
@@ -89,49 +89,6 @@ body, html {
     transform: rotate(45deg);
     margin: 0 10px;
     box-shadow: 0 0 8px #ffffff;
-}
-
-/* CONTENEDOR UBICADO EN LA PARTE BAJA CENTRAL */
-.xat-player-zone {
-    position: absolute;
-    bottom: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-}
-
-/* BOTÓN DE PLAY REDONDO CON ESTILO NEÓN */
-.xat-glow-play-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid #ffffff;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-    outline: none;
-}
-
-/* Triángulo de Play interno perfectamente centrado */
-.xat-play-triangle {
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-left: 12px solid #ffffff;
-    margin-left: 4px; /* Balance visual milimétrico */
-}
-
-/* Efecto al pasar el cursor sobre el botón */
-.xat-glow-play-btn:hover {
-    transform: scale(1.12);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
 /* ANIMACIÓN Y EFECTO DE ESTRELLAS FUGACES ORIGINALES */
