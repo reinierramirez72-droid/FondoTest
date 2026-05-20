@@ -16,27 +16,29 @@
         <div class="xat-shooting"></div>
         <div class="xat-shooting"></div>
 
-        <div class="xat-center-block">
-            <h1 class="xat-name-rei">Rei</h1>
-            <div class="xat-divider">
-                <div class="xat-diamond"></div>
-            </div>
-        </div>
-
-        <div class="xat-player-controls">
-            <div class="xat-btn" onclick="botonPlay(event)">
-                <div class="xat-icon-play"></div>
-            </div>
-            
-            <span class="xat-separator">|</span>
-            
-            <div class="xat-btn" onclick="botonPause(event)">
-                <div class="xat-icon-pause"></div>
-            </div>
-        </div>
+        <table class="xat-main-layout">
+            <tr>
+                <td class="xat-top-cell">
+                    <div class="xat-center-block">
+                        <h1 class="xat-name-rei">Rei</h1>
+                        <div class="xat-divider">
+                            <div class="xat-diamond"></div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="xat-bottom-cell">
+                    <div class="xat-controls-wrapper">
+                        <button class="xat-music-btn xat-btn-play" onclick="botonPlay(event)">PLAY</button>
+                        <button class="xat-music-btn xat-btn-pause" onclick="botonPause(event)">PAUSA</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
 
         <iframe id="xat-player"
-                style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; border: none;" 
+                style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; border: none; top: 0; left: 0;" 
                 src="https://www.youtube.com/embed/328Z3b77k6Y?enablejsapi=1&autoplay=0&loop=1&playlist=328Z3b77k6Y" 
                 allow="autoplay">
         </iframe>
@@ -44,7 +46,6 @@
     </div>
 
     <script>
-        // Carga la API de YouTube de forma segura
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -55,24 +56,21 @@
             player = new YT.Player('xat-player');
         }
 
-        // Función 1: Clic general en la pantalla (Inicia la música al entrar si estaba pausada)
         function iniciarMusica() {
             if (player && typeof player.playVideo === 'function') {
                 player.playVideo();
             }
         }
 
-        // Función 2: Clic específico en el botón de PLAY
         function botonPlay(event) {
-            event.stopPropagation(); // Evita que se duplique el evento con el clic del fondo
+            event.stopPropagation(); 
             if (player && typeof player.playVideo === 'function') {
                 player.playVideo();
             }
         }
 
-        // Función 3: Clic específico en el botón de PAUSE
         function botonPause(event) {
-            event.stopPropagation(); // Evita que se duplique el evento con el clic del fondo
+            event.stopPropagation(); 
             if (player && typeof player.pauseVideo === 'function') {
                 player.pauseVideo();
             }
