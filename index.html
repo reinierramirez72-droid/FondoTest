@@ -23,6 +23,18 @@
             </div>
         </div>
 
+        <div class="xat-player-controls">
+            <div class="xat-btn" onclick="botonPlay(event)">
+                <div class="xat-icon-play"></div>
+            </div>
+            
+            <span class="xat-separator">|</span>
+            
+            <div class="xat-btn" onclick="botonPause(event)">
+                <div class="xat-icon-pause"></div>
+            </div>
+        </div>
+
         <iframe id="xat-player"
                 style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; border: none;" 
                 src="https://www.youtube.com/embed/328Z3b77k6Y?enablejsapi=1&autoplay=0&loop=1&playlist=328Z3b77k6Y" 
@@ -32,7 +44,7 @@
     </div>
 
     <script>
-        // Carga la API de YouTube de forma segura para controlar el reproductor
+        // Carga la API de YouTube de forma segura
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -43,10 +55,26 @@
             player = new YT.Player('xat-player');
         }
 
-        // Al hacer clic en cualquier parte de la galaxia azul, la música arranca
+        // Función 1: Clic general en la pantalla (Inicia la música al entrar si estaba pausada)
         function iniciarMusica() {
             if (player && typeof player.playVideo === 'function') {
                 player.playVideo();
+            }
+        }
+
+        // Función 2: Clic específico en el botón de PLAY
+        function botonPlay(event) {
+            event.stopPropagation(); // Evita que se duplique el evento con el clic del fondo
+            if (player && typeof player.playVideo === 'function') {
+                player.playVideo();
+            }
+        }
+
+        // Función 3: Clic específico en el botón de PAUSE
+        function botonPause(event) {
+            event.stopPropagation(); // Evita que se duplique el evento con el clic del fondo
+            if (player && typeof player.pauseVideo === 'function') {
+                player.pauseVideo();
             }
         }
     </script>
