@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xat Space - Rei</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div class="xat-space-container" onclick="iniciarMusicaAmbiental()">
+
+        <div class="xat-stars"></div>
+
+        <div class="xat-shooting"></div>
+        <div class="xat-shooting"></div>
+        <div class="xat-shooting"></div>
+
+        <div class="xat-center-block">
+            <h1 class="xat-name-rei">Rei</h1>
+            <div class="xat-divider">
+                <div class="xat-diamond"></div>
+            </div>
+            <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; text-align: center; margin-top: 15px; font-family: sans-serif;">
+                (Haz clic en la pantalla para activar la música de prueba)
+            </p>
+        </div>
+
+        <audio id="xat-bg-audio" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Tu navegador no soporta este elemento de audio.
+        </audio>
+
+    </div>
+
+    <script>
+        const audioAmbiental = document.getElementById('xat-bg-audio');
+
+        function iniciarMusicaAmbiental() {
+            // Si el audio está pausado, lo reproduce al hacer clic
+            if (audioAmbiental.paused) {
+                audioAmbiental.play().catch(error => {
+                    console.log("El navegador bloqueó el inicio automático, esperando más interacción.");
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
