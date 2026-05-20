@@ -5,8 +5,7 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family: Arial, sans-serif;
-    background-color: #001133;
+    font-family: sans-serif;
 }
 
 /* CONTENEDOR PRINCIPAL CON DEGRADADO AZUL REY */
@@ -17,6 +16,10 @@ body, html {
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at center, #003399 0%, #001f66 70%, #001133 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     z-index: 1;
 }
@@ -33,35 +36,13 @@ body, html {
     background-size: 550px 550px, 350px 350px, 250px 250px;
     background-position: 0 0, 40px 60px, 130px 270px;
     opacity: 0.6;
-    z-index: 2;
-}
-
-/* ESTRUCTURA BASE EN TABLA PARA ASEGURAR VISIBILIDAD */
-.xat-main-layout {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-    z-index: 10;
-}
-
-.xat-top-cell {
-    text-align: center;
-    vertical-align: middle;
-    height: 75%; /* El nombre ocupa la mayor parte superior */
-}
-
-.xat-bottom-cell {
-    text-align: center;
-    vertical-align: bottom;
-    height: 25%; /* Los botones se reservan el cuarto inferior de la pantalla */
-    padding-bottom: 40px; /* Separación fija del borde de abajo */
 }
 
 /* BLOQUE CENTRAL */
 .xat-center-block {
-    display: block;
-    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 20px;
 }
 
 /* TIPOGRAFÍA DE "REI" CON DESTELLO NEÓN */
@@ -83,16 +64,15 @@ body, html {
 
 /* DIVISOR ELEGANTE */
 .xat-divider {
-    display: block;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: -10px;
     opacity: 0.8;
 }
 
 .xat-divider::before, .xat-divider::after {
     content: "";
-    display: inline-block;
-    vertical-align: middle;
     width: 70px;
     height: 1px;
     background: linear-gradient(to right, transparent, #ffffff);
@@ -103,8 +83,6 @@ body, html {
 }
 
 .xat-diamond {
-    display: inline-block;
-    vertical-align: middle;
     width: 8px;
     height: 8px;
     background-color: #ffffff;
@@ -113,36 +91,46 @@ body, html {
     box-shadow: 0 0 8px #ffffff;
 }
 
-/* CONTENEDOR DE BOTONES INFERIORES */
-.xat-controls-wrapper {
-    display: block;
-    text-align: center;
-    margin: 0 auto;
+/* CONTENEDOR SEGURO PARA EL BOTÓN INFERIOR */
+.xat-player-zone {
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
 }
 
-/* ESTILO DEFINITIVO DE LOS BOTONES TIPO REPRODUCTOR */
-.xat-music-btn {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+/* BOTÓN DE PLAY ESTILO NEÓN REDONDO */
+.xat-glow-play-btn {
+    background: rgba(255, 255, 255, 0.05);
     border: 2px solid #ffffff;
-    padding: 10px 24px;
-    margin: 0 10px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    border-radius: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-/* Efectos al pasar el cursor sobre PLAY o PAUSA */
-.xat-music-btn:hover {
-    background: #ffffff;
-    color: #001f66;
-    transform: scale(1.08);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+/* Icono de triángulo blanco interno perfectamente centrado */
+.xat-play-triangle {
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 12px solid #ffffff;
+    margin-left: 4px; /* Ajuste milimétrico para balancear visualmente el triángulo */
+}
+
+/* Efecto Hover Premium */
+.xat-glow-play-btn:hover {
+    transform: scale(1.15);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
 /* ANIMACIÓN Y EFECTO DE ESTRELLAS FUGACES */
@@ -156,7 +144,6 @@ body, html {
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(255,255,255,1);
     animation: xatFly 4s linear infinite;
-    z-index: 3;
 }
 
 .xat-shooting::before {
@@ -175,9 +162,6 @@ body, html {
 
 @keyframes xatFly {
     0% { transform: rotate(315deg) translateX(0); opacity: 1; }
-    70% { opacity: 1; }
-    100% { transform: rotate(315deg) translateX(-1000px); opacity: 0; }
-}
     70% { opacity: 1; }
     100% { transform: rotate(315deg) translateX(-1000px); opacity: 0; }
 }
