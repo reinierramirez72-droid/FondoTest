@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="xat-space-container" onclick="iniciarMusicaAmbiental()">
+    <div class="xat-space-container" onclick="iniciarMusica()">
 
         <div class="xat-stars"></div>
 
@@ -21,27 +21,32 @@
             <div class="xat-divider">
                 <div class="xat-diamond"></div>
             </div>
-            <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; text-align: center; margin-top: 15px; font-family: sans-serif;">
-                (Haz clic en la pantalla para activar la música de prueba)
-            </p>
         </div>
 
-        <audio id="xat-bg-audio" loop>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            Tu navegador no soporta este elemento de audio.
-        </audio>
+        <iframe id="xat-player"
+                style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; border: none;" 
+                src="https://www.youtube.com/embed/328Z3b77k6Y?enablejsapi=1&autoplay=0&loop=1&playlist=328Z3b77k6Y" 
+                allow="autoplay">
+        </iframe>
 
     </div>
 
     <script>
-        const audioAmbiental = document.getElementById('xat-bg-audio');
+        // Carga la API de YouTube de forma segura para controlar el reproductor
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        function iniciarMusicaAmbiental() {
-            // Si el audio está pausado, lo reproduce al hacer clic
-            if (audioAmbiental.paused) {
-                audioAmbiental.play().catch(error => {
-                    console.log("El navegador bloqueó el inicio automático, esperando más interacción.");
-                });
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('xat-player');
+        }
+
+        // Al hacer clic en cualquier parte de la galaxia azul, la música arranca
+        function iniciarMusica() {
+            if (player && typeof player.playVideo === 'function') {
+                player.playVideo();
             }
         }
     </script>
