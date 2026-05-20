@@ -8,7 +8,7 @@ body, html {
     font-family: sans-serif;
 }
 
-/* CONTENEDOR PRINCIPAL CON DEGRADADO AZUL REY */
+/* CONTENEDOR PRINCIPAL CON DEGRADADO AZUL REY ORIGINAL */
 .xat-space-container {
     position: fixed;
     top: 0;
@@ -24,7 +24,7 @@ body, html {
     z-index: 1;
 }
 
-/* EFECTO DE ESTRELLAS FIJAS EN EL FONDO */
+/* EFECTO DE ESTRELLAS FIJAS EN EL FONDO ORIGINAL */
 .xat-stars {
     position: absolute;
     width: 100%;
@@ -45,7 +45,7 @@ body, html {
     margin-bottom: 20px;
 }
 
-/* TIPOGRAFÍA DE "REI" CON DESTELLO NEÓN */
+/* TIPOGRAFÍA DE "REI" CON DESTELLO NEÓN DEL PRIMER DISEÑO */
 .xat-name-rei {
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
@@ -62,7 +62,7 @@ body, html {
     user-select: none;
 }
 
-/* DIVISOR ELEGANTE */
+/* DIVISOR ELEGANTE ORIGINAL */
 .xat-divider {
     display: flex;
     align-items: center;
@@ -91,7 +91,7 @@ body, html {
     box-shadow: 0 0 8px #ffffff;
 }
 
-/* CONTENEDOR SEGURO PARA EL BOTÓN INFERIOR */
+/* CONTENEDOR UBICADO EN LA PARTE BAJA CENTRAL */
 .xat-player-zone {
     position: absolute;
     bottom: 50px;
@@ -101,12 +101,12 @@ body, html {
     z-index: 100;
 }
 
-/* BOTÓN DE PLAY ESTILO NEÓN REDONDO */
+/* BOTÓN DE PLAY REDONDO CON ESTILO NEÓN */
 .xat-glow-play-btn {
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid #ffffff;
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -114,26 +114,27 @@ body, html {
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    outline: none;
 }
 
-/* Icono de triángulo blanco interno perfectamente centrado */
+/* Triángulo de Play interno perfectamente centrado */
 .xat-play-triangle {
     width: 0;
     height: 0;
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
     border-left: 12px solid #ffffff;
-    margin-left: 4px; /* Ajuste milimétrico para balancear visualmente el triángulo */
+    margin-left: 4px; /* Balance visual milimétrico */
 }
 
-/* Efecto Hover Premium */
+/* Efecto al pasar el cursor sobre el botón */
 .xat-glow-play-btn:hover {
-    transform: scale(1.15);
+    transform: scale(1.12);
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
-/* ANIMACIÓN Y EFECTO DE ESTRELLAS FUGACES */
+/* ANIMACIÓN Y EFECTO DE ESTRELLAS FUGACES ORIGINALES */
 .xat-shooting {
     position: absolute;
     top: 50%;
@@ -156,6 +157,7 @@ body, html {
     background: linear-gradient(90deg, #fff, transparent);
 }
 
+/* Posiciones de las estrellas fugaces */
 .xat-shooting:nth-child(1) { top: 0px; right: 0px; left: initial; animation-delay: 0s; animation-duration: 3s; }
 .xat-shooting:nth-child(2) { top: 0px; right: 200px; left: initial; animation-delay: 0.5s; animation-duration: 4s; }
 .xat-shooting:nth-child(3) { top: 80px; right: 400px; left: initial; animation-delay: 1s; animation-duration: 2.5s; }
