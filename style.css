@@ -97,59 +97,73 @@ body, html {
     bottom: 50px;
     display: flex;
     align-items: center;
-    background: rgba(0, 17, 51, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 8px 20px 8px 10px;
+    background: rgba(0, 17, 51, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 6px 20px 6px 8px;
     border-radius: 30px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 51, 153, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     z-index: 100;
-    transition: all 0.3s ease;
-}
-
-.xat-player-container:hover {
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 /* BOTÓN CIRCULAR DE CONTROL */
 .xat-play-btn {
     background: #ffffff;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     outline: none;
+    z-index: 5;
 }
 
 .xat-play-btn:hover {
-    transform: scale(1.06);
-    background: #f0f0f0;
+    transform: scale(1.05);
 }
 
-/* CONTENEDOR DINÁMICO DE ICONOS */
+/* CONTENEDOR ADAPTADO PARA EL REPRODUCTOR DE YOUTUBE VISIBLE */
+/* Mide 38x38px, tiene bordes redondeados y simula ser la miniatura de la canción */
+.xat-video-box {
+    width: 38px;
+    height: 38px;
+    margin-left: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.xat-video-box iframe {
+    width: 120px; /* Se hace un poco más grande internamente para recortar los bordes negros de YT */
+    height: 120px;
+    border: none;
+    pointer-events: none; /* Evita que la gente cliquee dentro del video */
+}
+
+/* ICONOS DINÁMICOS */
 .xat-icon-shape {
     transition: all 0.1s ease;
 }
 
-/* Estado Play: Dibuja un triángulo azul */
 .xat-state-play {
     width: 0;
     height: 0;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 11px solid #001f66;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid #001f66;
     margin-left: 3px;
 }
 
-/* Estado Pausa: Dibuja dos barras azules */
 .xat-state-pause {
     display: flex;
     gap: 3px;
@@ -157,7 +171,7 @@ body, html {
 .xat-state-pause::before, .xat-state-pause::after {
     content: "";
     width: 3px;
-    height: 11px;
+    height: 10px;
     background-color: #001f66;
 }
 
@@ -165,7 +179,7 @@ body, html {
 .xat-song-info {
     display: flex;
     flex-direction: column;
-    margin-left: 14px;
+    margin-left: 12px;
     user-select: none;
 }
 
@@ -174,13 +188,12 @@ body, html {
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    line-height: 1.2;
 }
 
 .xat-song-artist {
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.75rem;
-    margin-top: 2px;
+    margin-top: 1px;
 }
 
 /* ANIMACIÓN Y EFECTO DE ESTRELLAS FUGACES */
