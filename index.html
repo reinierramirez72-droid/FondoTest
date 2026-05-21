@@ -34,8 +34,8 @@
             </div>
         </div>
 
-        <audio id="xat-bg-audio" loop prefetch="auto">
-            <source src="https://archive.org/download/carin-leon-desde-que-te-tengo-letra-328-z-3b-77k-6y/Carin%20Leon%20-%20Desde%20Que%20Te%20Tengo%20%28Letra%29%20%5B328Z3b77k6Y%5D.mp3" type="audio/mpeg">
+        <audio id="xat-bg-audio" loop>
+            <source src="cancion.mp3.mp3" type="audio/mpeg">
             Tu navegador no soporta este elemento de audio.
         </audio>
 
@@ -46,11 +46,14 @@
         const miIcono = document.getElementById('xat-icon');
 
         function controlarAudio(event) {
-            event.stopPropagation(); // Evita conflictos en el fondo
+            event.stopPropagation(); // Evita conflictos con el fondo
             
             if (miAudio.paused) {
-                miAudio.play();
-                miIcono.className = "xat-icon-shape xat-state-pause";
+                miAudio.play().then(() => {
+                    miIcono.className = "xat-icon-shape xat-state-pause";
+                }).catch(error => {
+                    console.log("Error al reproducir: ", error);
+                });
             } else {
                 miAudio.pause();
                 miIcono.className = "xat-icon-shape xat-state-play";
