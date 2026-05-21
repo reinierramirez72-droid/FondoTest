@@ -24,20 +24,22 @@
         </div>
 
         <div class="xat-player-container">
-            <button class="xat-play-btn" id="xat-toggle-btn" onclick="controlarMusica(event)" title="Reproducir / Pausar">
+            <button class="xat-play-btn" onclick="controlarMusica(event)" title="Reproducir / Pausar">
                 <div class="xat-icon-shape" id="xat-icon"></div>
             </button>
+            
+            <div class="xat-video-box">
+                <iframe id="xat-player-iframe"
+                        src="https://www.youtube.com/embed/328Z3b77k6Y?enablejsapi=1&autoplay=0&loop=1&playlist=328Z3b77k6Y&controls=0&showinfo=0&rel=0" 
+                        allow="autoplay">
+                </iframe>
+            </div>
+
             <div class="xat-song-info">
                 <span class="xat-song-title">Desde Que Te Tengo</span>
                 <span class="xat-song-artist">Carín León</span>
             </div>
         </div>
-
-        <iframe id="xat-player-iframe"
-                style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; border: none; top: 0; left: 0;" 
-                src="https://www.youtube.com/embed/328Z3b77k6Y?enablejsapi=1&autoplay=0&loop=1&playlist=328Z3b77k6Y" 
-                allow="autoplay">
-        </iframe>
 
     </div>
 
@@ -58,10 +60,8 @@
             });
         }
 
-        // Monitorea si la canción cambia de estado externamente
         function onPlayerStateChange(event) {
             const icon = document.getElementById('xat-icon');
-            // Si está reproduciendo (estado 1)
             if (event.data == YT.PlayerState.PLAYING) {
                 estaReproduciendo = true;
                 icon.className = "xat-icon-shape xat-state-pause";
@@ -71,9 +71,8 @@
             }
         }
 
-        // Controla la acción del botón único
         function controlarMusica(event) {
-            event.stopPropagation(); // Evita conflictos de clics
+            event.stopPropagation();
             if (player && typeof player.playVideo === 'function') {
                 if (!estaReproduciendo) {
                     player.playVideo();
