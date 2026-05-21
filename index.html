@@ -24,61 +24,36 @@
         </div>
 
         <div class="xat-player-container">
-            <button class="xat-play-btn" onclick="controlarMusica(event)" title="Reproducir / Pausar">
-                <div class="xat-icon-shape" id="xat-icon"></div>
+            <button class="xat-play-btn" onclick="controlarAudio(event)" title="Reproducir / Pausar">
+                <div class="xat-icon-shape xat-state-play" id="xat-icon"></div>
             </button>
             
-            <div class="xat-video-box">
-                <iframe id="xat-player-iframe"
-                        src="https://www.youtube.com/embed/328Z3b77k6Y?enablejsapi=1&autoplay=0&loop=1&playlist=328Z3b77k6Y&controls=0&showinfo=0&rel=0" 
-                        allow="autoplay">
-                </iframe>
-            </div>
-
             <div class="xat-song-info">
                 <span class="xat-song-title">Desde Que Te Tengo</span>
                 <span class="xat-song-artist">Carín León</span>
             </div>
         </div>
 
+        <audio id="xat-bg-audio" loop prefetch="auto">
+            <source src="https://archive.org/download/carin-leon-desde-que-te-tengo-letra-328-z-3b-77k-6y/Carin%20Leon%20-%20Desde%20Que%20Te%20Tengo%20%28Letra%29%20%5B328Z3b77k6Y%5D.mp3" type="audio/mpeg">
+            Tu navegador no soporta este elemento de audio.
+        </audio>
+
     </div>
 
     <script>
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        const miAudio = document.getElementById('xat-bg-audio');
+        const miIcono = document.getElementById('xat-icon');
 
-        var player;
-        var estaReproduciendo = false;
-
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('xat-player-iframe', {
-                events: {
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-
-        function onPlayerStateChange(event) {
-            const icon = document.getElementById('xat-icon');
-            if (event.data == YT.PlayerState.PLAYING) {
-                estaReproduciendo = true;
-                icon.className = "xat-icon-shape xat-state-pause";
+        function controlarAudio(event) {
+            event.stopPropagation(); // Evita conflictos en el fondo
+            
+            if (miAudio.paused) {
+                miAudio.play();
+                miIcono.className = "xat-icon-shape xat-state-pause";
             } else {
-                estaReproduciendo = false;
-                icon.className = "xat-icon-shape xat-state-play";
-            }
-        }
-
-        function controlarMusica(event) {
-            event.stopPropagation();
-            if (player && typeof player.playVideo === 'function') {
-                if (!estaReproduciendo) {
-                    player.playVideo();
-                } else {
-                    player.pauseVideo();
-                }
+                miAudio.pause();
+                miIcono.className = "xat-icon-shape xat-state-play";
             }
         }
     </script>
