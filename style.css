@@ -99,7 +99,7 @@ body, html {
     align-items: center;
     background: rgba(0, 17, 51, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 6px 20px 6px 8px;
+    padding: 8px 24px 8px 10px;
     border-radius: 30px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -121,33 +121,10 @@ body, html {
     transition: transform 0.2s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     outline: none;
-    z-index: 5;
 }
 
 .xat-play-btn:hover {
     transform: scale(1.05);
-}
-
-/* CONTENEDOR ADAPTADO PARA EL REPRODUCTOR DE YOUTUBE VISIBLE */
-/* Mide 38x38px, tiene bordes redondeados y simula ser la miniatura de la canción */
-.xat-video-box {
-    width: 38px;
-    height: 38px;
-    margin-left: 10px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.xat-video-box iframe {
-    width: 120px; /* Se hace un poco más grande internamente para recortar los bordes negros de YT */
-    height: 120px;
-    border: none;
-    pointer-events: none; /* Evita que la gente cliquee dentro del video */
 }
 
 /* ICONOS DINÁMICOS */
@@ -179,7 +156,7 @@ body, html {
 .xat-song-info {
     display: flex;
     flex-direction: column;
-    margin-left: 12px;
+    margin-left: 14px;
     user-select: none;
 }
 
