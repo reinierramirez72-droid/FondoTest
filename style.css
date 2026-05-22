@@ -8,41 +8,29 @@ body, html {
     font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* CONTENEDOR PRINCIPAL: ESPACIO PROFUNDO ABSOLUTO */
+/* CONTENEDOR PRINCIPAL: COLOR SOLIDO #8B795E CON APARICIÓN LENTA */
 .xat-space-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #030201; /* Negro puro espacial */
+    background-color: #8B795E; /* Tu color de fondo solicitado */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     z-index: 1;
+    
+    /* Animación de aparición suave al cargar la página */
+    animation: xatFadeInSpace 2.5s ease-out forwards;
+    opacity: 0;
 }
 
-/* FONDO COMPLETO DE ESTRELLAS FIJAS CON EFECTO DE TITILEO */
-.xat-deep-space-stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(#ffffff 1px, transparent 20px),
-        radial-gradient(rgba(255, 255, 255, 0.4) 1.5px, transparent 30px),
-        radial-gradient(rgba(212, 175, 55, 0.5) 1px, transparent 40px);
-    background-size: 200px 200px, 350px 350px, 400px 400px;
-    background-position: 0 0, 40px 70px, 130px 240px;
-    opacity: 0.85;
-    z-index: 2;
-    animation: xatTwinkle Stars 6s ease-in-out infinite alternate;
-}
-
-@keyframes xatTwinkleStars {
-    0% { opacity: 0.6; }
-    100% { opacity: 0.9; }
+@keyframes xatFadeInSpace {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* BLOQUE CENTRAL */
@@ -52,7 +40,7 @@ body, html {
     margin-bottom: 25px;
 }
 
-/* EFECTO SHIMMER DE LUZ DE IZQUIERDA A DERECHA EN "REI" */
+/* "REI" EN COLOR #D4AF37 CON EFECTO DE LUZ SHIMMER */
 .xat-name-rei-shimmer {
     font-family: 'Times New Roman', Times, serif;
     font-size: 8.5rem;
@@ -63,20 +51,20 @@ body, html {
     line-height: 0.9;
     letter-spacing: -1px;
 
-    /* Base metálica dorada */
-    color: #9c8668; 
+    /* Base metálica dorada solicitada */
+    color: #D4AF37; 
     
-    /* Máscara animada de destello */
-    background: linear-gradient(to right, #8B795E 0%, #8B795E 42%, #ffffff 50%, #8B795E 58%, #8B795E 100%);
+    /* Máscara de degradado para el reflejo brillante */
+    background: linear-gradient(to right, #D4AF37 0%, #D4AF37 40%, #ffffff 50%, #D4AF37 60%, #D4AF37 100%);
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
-    animation: xatGlowStreak 3.5s linear infinite;
+    animation: xatGlowStreak 3.8s linear infinite;
     
-    /* Brillo neón dorado de fondo que lo hace resaltar en el negro */
-    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.65)) drop-shadow(2px 2px 4px rgba(0,0,0,1));
+    /* Sombra elegante y sutil para dar relieve sin ensuciar el fondo plano */
+    filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.4));
 }
 
 @keyframes xatGlowStreak {
@@ -84,50 +72,50 @@ body, html {
     100% { background-position: -200% center; }
 }
 
-/* DIVISOR EN DORADO ELÉCTRICO */
+/* DIVISOR DORADO */
 .xat-divider {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 8px;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .xat-divider::before, .xat-divider::after {
     content: "";
     width: 95px;
     height: 1.5px;
-    background: linear-gradient(to right, transparent, #ffd700 50%, transparent);
+    background: linear-gradient(to right, transparent, #ffffff 50%, transparent);
 }
 
 .xat-diamond {
     width: 6px;
     height: 6px;
-    background-color: #ffd700;
+    background-color: #ffffff;
     transform: rotate(45deg);
     margin: 0 15px;
-    box-shadow: 0 0 12px #ffffff;
+    box-shadow: 0 0 8px #ffffff;
 }
 
-/* REPRODUCTOR CRISTAL DE TU ÚLTIMO DISEÑO */
+/* REPRODUCTOR ESTILO CRISTAL TRANSLÚCIDO */
 .xat-player-container {
     position: absolute;
     bottom: 60px;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(35, 28, 18, 0.7) 0%, rgba(10, 7, 4, 0.9) 100%);
-    border: 1px solid rgba(255, 215, 0, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     padding: 10px 28px 10px 12px;
     border-radius: 14px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     z-index: 100;
 }
 
 /* BOTÓN DE CONTROL */
 .xat-play-btn {
-    background: linear-gradient(to bottom, #ffffff 0%, #e6e6e6 100%);
+    background: #ffffff;
     border: none;
     width: 38px;
     height: 38px;
@@ -136,7 +124,7 @@ body, html {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
     outline: none;
 }
 
@@ -145,12 +133,12 @@ body, html {
     width: 0; height: 0;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-left: 9px solid #1c130a;
+    border-left: 9px solid #8B795E;
     margin-left: 2px;
 }
 .xat-state-pause { display: flex; gap: 3px; }
 .xat-state-pause::before, .xat-state-pause::after {
-    content: ""; width: 3px; height: 10px; background-color: #1c130a;
+    content: ""; width: 3px; height: 10px; background-color: #8B795E;
 }
 
 /* TEXTOS DEL REPRODUCTOR */
@@ -169,49 +157,48 @@ body, html {
 }
 
 .xat-song-artist {
-    color: #ffd700;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.75rem;
     margin-top: 2px;
 }
 
-/* FISICA AVANZADA DE METEORITOS EN CAÍDA ALEATORIA CRECIENTE */
-.xat-meteor {
+/* UNA ÚNICA ESTRELLA MUTANTE/ALEATORIA SIN LÍNEA DE ESTELA */
+.xat-single-star {
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
     background: #ffffff;
     border-radius: 50%;
-    /* Super destello blanco de cabeza */
-    box-shadow: 0 0 25px 4px #ffffff, 0 0 10px #ffd700;
-    animation: xatMeteorCrash 3s linear infinite;
+    /* Efecto de brillo circular limpio sin rastro ni líneas largas traseras */
+    box-shadow: 0 0 15px 3px #ffffff, 0 0 6px #D4AF37;
     z-index: 5;
     opacity: 0;
+    
+    /* Animación cíclica con una trayectoria amplia y pausas incorporadas */
+    animation: xatSingleStarPass 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-/* Estela larga y difuminada del meteorito */
-.xat-meteor::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    /* Inclinación fuerte de 45 grados hacia abajo */
-    transform: translateY(-50%) rotate(-45deg);
-    width: 300px;
-    height: 2px;
-    background: linear-gradient(90deg, #ffffff, rgba(255, 215, 0, 0.4) 30%, transparent);
-    transform-origin: left center;
-}
-
-/* Posiciones, velocidades y retrasos totalmente alterados (Efecto aleatorio real) */
-.xat-mt-1 { top: -15%; left: 20%; animation-duration: 1.6s; animation-delay: 0s; }
-.xat-mt-2 { top: -15%; left: 50%; animation-duration: 2.3s; animation-delay: 0.7s; }
-.xat-mt-3 { top: -15%; left: 80%; animation-duration: 1.2s; animation-delay: 1.4s; }
-.xat-mt-4 { top: -15%; left: 5%; animation-duration: 1.9s; animation-delay: 0.3s; }
-.xat-mt-5 { top: -15%; left: 35%; animation-duration: 2.7s; animation-delay: 2.1s; }
-.xat-mt-6 { top: -15%; left: 65%; animation-duration: 1.5s; animation-delay: 1.0s; }
-
-@keyframes xatMeteorCrash {
-    0% { transform: translate(0, 0) rotate(-45deg); opacity: 0; }
-    5% { opacity: 1; }
-    45% { opacity: 1; }
-    100% { transform: translate(-1100px, 1100px) rotate(-45deg); opacity: 0; }
+@keyframes xatSingleStarPass {
+    0% {
+        top: 15%;
+        left: -10%;
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    40% {
+        top: 45%;
+        left: 110%;
+        opacity: 0;
+        transform: scale(0.4);
+    }
+    /* Del 40% al 100% la estrella se mantiene oculta para simular una espera aleatoria */
+    100% {
+        top: 15%;
+        left: -10%;
+        opacity: 0;
+    }
 }
