@@ -8,14 +8,15 @@ body, html {
     font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* CONTENEDOR PRINCIPAL: COLOR SOLIDO #8B795E CON APARICIÓN LENTA */
+/* CONTENEDOR PRINCIPAL: GRADIE_NTE ORO LÍQUIDO CON APARICIÓN SUAVE */
 .xat-space-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #8B795E; /* Tu color de fondo solicitado */
+    /* Fusión de degradado radial: centro iluminado oro puro, bodes bronce profundo */
+    background: radial-gradient(circle at center, #9e824a 0%, #6e562f 60%, #423219 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,7 +24,7 @@ body, html {
     overflow: hidden;
     z-index: 1;
     
-    /* Animación de aparición suave al cargar la página */
+    /* Animación de entrada elegante (Aparición lenta) */
     animation: xatFadeInSpace 2.5s ease-out forwards;
     opacity: 0;
 }
@@ -40,7 +41,7 @@ body, html {
     margin-bottom: 25px;
 }
 
-/* "REI" EN COLOR #D4AF37 CON EFECTO DE LUZ SHIMMER */
+/* "REI" EN COLOR #D4AF37 CON EFECTO DE LUZ SHIMMER CONSTANTE */
 .xat-name-rei-shimmer {
     font-family: 'Times New Roman', Times, serif;
     font-size: 8.5rem;
@@ -51,10 +52,10 @@ body, html {
     line-height: 0.9;
     letter-spacing: -1px;
 
-    /* Base metálica dorada solicitada */
+    /* Base metálica dorada premium */
     color: #D4AF37; 
     
-    /* Máscara de degradado para el reflejo brillante */
+    /* Máscara de degradado líquido para el reflejo brillante tipo GIF */
     background: linear-gradient(to right, #D4AF37 0%, #D4AF37 40%, #ffffff 50%, #D4AF37 60%, #D4AF37 100%);
     background-size: 200% auto;
     background-clip: text;
@@ -63,8 +64,8 @@ body, html {
     
     animation: xatGlowStreak 3.8s linear infinite;
     
-    /* Sombra elegante y sutil para dar relieve sin ensuciar el fondo plano */
-    filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.4));
+    /* Sombra de relieve pulida */
+    filter: drop-shadow(2px 3px 5px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes xatGlowStreak {
@@ -78,7 +79,7 @@ body, html {
     align-items: center;
     justify-content: center;
     margin-top: 8px;
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .xat-divider::before, .xat-divider::after {
@@ -97,19 +98,19 @@ body, html {
     box-shadow: 0 0 8px #ffffff;
 }
 
-/* REPRODUCTOR ESTILO CRISTAL TRANSLÚCIDO */
+/* REPRODUCTOR ESTILO CRISTAL ADAPTADO AL FONDO ORO */
 .xat-player-container {
     position: absolute;
     bottom: 60px;
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(42, 32, 17, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 10px 28px 10px 12px;
     border-radius: 14px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     z-index: 100;
 }
 
@@ -124,7 +125,7 @@ body, html {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     outline: none;
 }
 
@@ -133,12 +134,12 @@ body, html {
     width: 0; height: 0;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-left: 9px solid #8B795E;
+    border-left: 9px solid #6e562f;
     margin-left: 2px;
 }
 .xat-state-pause { display: flex; gap: 3px; }
 .xat-state-pause::before, .xat-state-pause::after {
-    content: ""; width: 3px; height: 10px; background-color: #8B795E;
+    content: ""; width: 3px; height: 10px; background-color: #6e562f;
 }
 
 /* TEXTOS DEL REPRODUCTOR */
@@ -162,42 +163,41 @@ body, html {
     margin-top: 2px;
 }
 
-/* UNA ÚNICA ESTRELLA MUTANTE/ALEATORIA SIN LÍNEA DE ESTELA */
+/* UNA ÚNICA ESTRELLA EN ÓRBITA LIMPIA SIN ESTELA */
 .xat-single-star {
     position: absolute;
     width: 6px;
     height: 6px;
     background: #ffffff;
     border-radius: 50%;
-    /* Efecto de brillo circular limpio sin rastro ni líneas largas traseras */
-    box-shadow: 0 0 15px 3px #ffffff, 0 0 6px #D4AF37;
+    box-shadow: 0 0 15px 4px #ffffff, 0 0 6px #D4AF37;
     z-index: 5;
     opacity: 0;
     
-    /* Animación cíclica con una trayectoria amplia y pausas incorporadas */
+    /* Animación limpia con intervalos amplios (reaparece cada 7 segundos) */
     animation: xatSingleStarPass 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @keyframes xatSingleStarPass {
     0% {
-        top: 15%;
+        top: 20%;
         left: -10%;
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    15% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+    45% {
+        top: 50%;
+        left: 110%;
         opacity: 0;
         transform: scale(0.5);
     }
-    10% {
-        opacity: 1;
-        transform: scale(1.2);
-    }
-    40% {
-        top: 45%;
-        left: 110%;
-        opacity: 0;
-        transform: scale(0.4);
-    }
-    /* Del 40% al 100% la estrella se mantiene oculta para simular una espera aleatoria */
+    /* Intervalo de descanso donde la pantalla se queda 100% limpia */
     100% {
-        top: 15%;
+        top: 20%;
         left: -10%;
         opacity: 0;
     }
