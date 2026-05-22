@@ -10,11 +10,15 @@
 
     <div class="xat-space-container" onclick="activarMusicaFondo()">
 
-        <div class="xat-stars"></div>
+        <div class="xat-nebula-texture"></div>
+        <div class="xat-stars-dust"></div>
 
-        <div class="xat-shooting"></div>
-        <div class="xat-shooting"></div>
-        <div class="xat-shooting"></div>
+        <div class="xat-shooting-star xat-star-1"></div>
+        <div class="xat-shooting-star xat-star-2"></div>
+        <div class="xat-shooting-star xat-star-3"></div>
+        <div class="xat-shooting-star xat-star-4"></div>
+        <div class="xat-shooting-star xat-star-5"></div>
+        <div class="xat-shooting-star xat-star-6"></div>
 
         <div class="xat-center-block">
             <h1 class="xat-name-rei">Rei</h1>
@@ -27,7 +31,6 @@
             <button class="xat-play-btn" onclick="controlarAudio(event)" title="Reproducir / Pausar">
                 <div class="xat-icon-shape xat-state-play" id="xat-icon"></div>
             </button>
-            
             <div class="xat-song-info">
                 <span class="xat-song-title">Desde Que Te Tengo</span>
                 <span class="xat-song-artist">Carín León</span>
@@ -46,28 +49,23 @@
         const miIcono = document.getElementById('xat-icon');
         let musicaIniciada = false;
 
-        // Función para que suene de una vez al interactuar con el Xat Space
         function activarMusicaFondo() {
             if (!musicaIniciada) {
                 miAudio.play().then(() => {
                     miIcono.className = "xat-icon-shape xat-state-pause";
                     musicaIniciada = true;
                 }).catch(error => {
-                    console.log("Esperando interacción completa: ", error);
+                    console.log("Esperando interacción completa.");
                 });
             }
         }
 
-        // Función manual del botón Play/Pausa
         function controlarAudio(event) {
-            event.stopPropagation(); // Evita que se duplique con el clic del contenedor
-            
+            event.stopPropagation();
             if (miAudio.paused) {
                 miAudio.play().then(() => {
                     miIcono.className = "xat-icon-shape xat-state-pause";
                     musicaIniciada = true;
-                }).catch(error => {
-                    console.log("Error al reproducir: ", error);
                 });
             } else {
                 miAudio.pause();
