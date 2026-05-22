@@ -8,14 +8,14 @@ body, html {
     font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* FONDO GALÁCTICO CON MAS ENERGÍA DORADA */
+/* CONTENEDOR PRINCIPAL: ESPACIO PROFUNDO ABSOLUTO */
 .xat-space-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 40%, #544124 0%, #1c130a 70%, #080503 100%);
+    background-color: #030201; /* Negro puro espacial */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,43 +24,25 @@ body, html {
     z-index: 1;
 }
 
-/* NÚCLEO DE LUZ NEÓN DETRÁS DEL NOMBRE */
-.xat-gold-glow-core {
-    position: absolute;
-    width: 500px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(255, 191, 0, 0.25) 0%, transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    z-index: 2;
-    pointer-events: none;
-}
-
-/* TEXTURA DE COLA DE NEBULOSA ENERGETIZADA */
-.xat-nebula-texture {
-    position: absolute;
-    width: 160%;
-    height: 160%;
-    background: radial-gradient(ellipse at 75% 25%, rgba(212, 175, 55, 0.25) 0%, transparent 45%),
-                radial-gradient(ellipse at 25% 75%, rgba(255, 215, 0, 0.15) 0%, transparent 50%);
-    transform: rotate(-10deg);
-    z-index: 3;
-}
-
-/* POLVO CÓSMICO VIVO DE ALTA DENSIDAD */
-.xat-stars-dust-intense {
+/* FONDO COMPLETO DE ESTRELLAS FIJAS CON EFECTO DE TITILEO */
+.xat-deep-space-stars {
     position: absolute;
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(#ffffff 1.5px, transparent 15px),
-        radial-gradient(rgba(255, 223, 0, 0.8) 1.5px, transparent 25px),
-        radial-gradient(#ffffff 2px, transparent 35px);
-    background-size: 250px 250px, 180px 180px, 400px 400px;
-    background-position: 10px 10px, 60px 40px, 200px 150px;
-    opacity: 0.7;
-    z-index: 4;
+        radial-gradient(#ffffff 1px, transparent 20px),
+        radial-gradient(rgba(255, 255, 255, 0.4) 1.5px, transparent 30px),
+        radial-gradient(rgba(212, 175, 55, 0.5) 1px, transparent 40px);
+    background-size: 200px 200px, 350px 350px, 400px 400px;
+    background-position: 0 0, 40px 70px, 130px 240px;
+    opacity: 0.85;
+    z-index: 2;
+    animation: xatTwinkle Stars 6s ease-in-out infinite alternate;
+}
+
+@keyframes xatTwinkleStars {
+    0% { opacity: 0.6; }
+    100% { opacity: 0.9; }
 }
 
 /* BLOQUE CENTRAL */
@@ -81,21 +63,20 @@ body, html {
     line-height: 0.9;
     letter-spacing: -1px;
 
-    /* Base del color oro metálico */
+    /* Base metálica dorada */
     color: #9c8668; 
     
-    /* Creamos la máscara del reflejo brillante */
-    background: linear-gradient(to right, #8B795E 0%, #8B795E 40%, #ffffff 50%, #8B795E 60%, #8B795E 100%);
+    /* Máscara animada de destello */
+    background: linear-gradient(to right, #8B795E 0%, #8B795E 42%, #ffffff 50%, #8B795E 58%, #8B795E 100%);
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
-    /* El efecto de animación tipo GIF */
     animation: xatGlowStreak 3.5s linear infinite;
     
-    /* El neón dorado por debajo del texto */
-    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.5)) drop-shadow(2px 2px 3px rgba(0,0,0,0.9));
+    /* Brillo neón dorado de fondo que lo hace resaltar en el negro */
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.65)) drop-shadow(2px 2px 4px rgba(0,0,0,1));
 }
 
 @keyframes xatGlowStreak {
@@ -103,29 +84,29 @@ body, html {
     100% { background-position: -200% center; }
 }
 
-/* DIVISOR DORADO EN SINTONÍA */
+/* DIVISOR EN DORADO ELÉCTRICO */
 .xat-divider {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 8px;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .xat-divider::before, .xat-divider::after {
     content: "";
     width: 95px;
     height: 1.5px;
-    background: linear-gradient(to right, transparent, #ffdf00 50%, transparent);
+    background: linear-gradient(to right, transparent, #ffd700 50%, transparent);
 }
 
 .xat-diamond {
     width: 6px;
     height: 6px;
-    background-color: #ffdf00;
+    background-color: #ffd700;
     transform: rotate(45deg);
     margin: 0 15px;
-    box-shadow: 0 0 10px #ffffff;
+    box-shadow: 0 0 12px #ffffff;
 }
 
 /* REPRODUCTOR CRISTAL DE TU ÚLTIMO DISEÑO */
@@ -134,13 +115,13 @@ body, html {
     bottom: 60px;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(54, 41, 24, 0.6) 0%, rgba(15, 10, 5, 0.85) 100%);
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    background: linear-gradient(135deg, rgba(35, 28, 18, 0.7) 0%, rgba(10, 7, 4, 0.9) 100%);
+    border: 1px solid rgba(255, 215, 0, 0.35);
     padding: 10px 28px 10px 12px;
     border-radius: 14px;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.7);
     z-index: 100;
 }
 
@@ -193,42 +174,44 @@ body, html {
     margin-top: 2px;
 }
 
-/* ANIMACIÓN ACELERADA DE ESTRELLAS FUGACES BRILANTES */
-.xat-shooting-star {
+/* FISICA AVANZADA DE METEORITOS EN CAÍDA ALEATORIA CRECIENTE */
+.xat-meteor {
     position: absolute;
-    width: 3.5px;
-    height: 3.5px;
+    width: 4px;
+    height: 4px;
     background: #ffffff;
     border-radius: 50%;
-    box-shadow: 0 0 18px 3px #ffffff;
-    /* Duración de 2 segundos en vez de 4 para dar máxima velocidad */
-    animation: xatFastShower 2s linear infinite;
+    /* Super destello blanco de cabeza */
+    box-shadow: 0 0 25px 4px #ffffff, 0 0 10px #ffd700;
+    animation: xatMeteorCrash 3s linear infinite;
     z-index: 5;
     opacity: 0;
 }
 
-.xat-shooting-star::before {
+/* Estela larga y difuminada del meteorito */
+.xat-meteor::before {
     content: '';
     position: absolute;
     top: 50%;
-    transform: translateY(-50%) rotate(-35deg);
-    width: 220px;
-    height: 1px;
-    background: linear-gradient(90deg, #ffffff, transparent);
+    /* Inclinación fuerte de 45 grados hacia abajo */
+    transform: translateY(-50%) rotate(-45deg);
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(90deg, #ffffff, rgba(255, 215, 0, 0.4) 30%, transparent);
     transform-origin: left center;
 }
 
-/* Sincronización a ráfaga rápida */
-.xat-fast-1 { top: -10%; right: 15%; animation-duration: 1.4s; animation-delay: 0s; }
-.xat-fast-2 { top: -5%; right: 40%; animation-duration: 1.9s; animation-delay: 0.4s; }
-.xat-fast-3 { top: -12%; right: 65%; animation-duration: 1.2s; animation-delay: 0.9s; }
-.xat-fast-4 { top: 15%; right: -5%; animation-duration: 1.6s; animation-delay: 0.2s; }
-.xat-fast-5 { top: -8%; right: 85%; animation-duration: 2.2s; animation-delay: 1.1s; }
-.xat-fast-6 { top: 25%; right: -8%; animation-duration: 1.3s; animation-delay: 0.6s; }
+/* Posiciones, velocidades y retrasos totalmente alterados (Efecto aleatorio real) */
+.xat-mt-1 { top: -15%; left: 20%; animation-duration: 1.6s; animation-delay: 0s; }
+.xat-mt-2 { top: -15%; left: 50%; animation-duration: 2.3s; animation-delay: 0.7s; }
+.xat-mt-3 { top: -15%; left: 80%; animation-duration: 1.2s; animation-delay: 1.4s; }
+.xat-mt-4 { top: -15%; left: 5%; animation-duration: 1.9s; animation-delay: 0.3s; }
+.xat-mt-5 { top: -15%; left: 35%; animation-duration: 2.7s; animation-delay: 2.1s; }
+.xat-mt-6 { top: -15%; left: 65%; animation-duration: 1.5s; animation-delay: 1.0s; }
 
-@keyframes xatFastShower {
-    0% { transform: translate(0, 0) rotate(-35deg); opacity: 0; }
-    8% { opacity: 1; }
-    50% { opacity: 1; }
-    100% { transform: translate(-1000px, 700px) rotate(-35deg); opacity: 0; }
+@keyframes xatMeteorCrash {
+    0% { transform: translate(0, 0) rotate(-45deg); opacity: 0; }
+    5% { opacity: 1; }
+    45% { opacity: 1; }
+    100% { transform: translate(-1100px, 1100px) rotate(-45deg); opacity: 0; }
 }
