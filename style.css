@@ -1,209 +1,208 @@
-/* RESET GENERAL DE PÁGINA */
+/* RESET GENERAL */
 body, html {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* CONTENEDOR PRINCIPAL CON DEGRADADO DORADO PROFUNDO */
+/* FONDO CÓSMICO DE TU IMAGEN */
 .xat-space-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Degradado radial que va desde un oro destellante a un marrón ébano muy elegante */
-    background: radial-gradient(circle at center, #5c4a31 0%, #2b2011 70%, #140e06 100%);
+    background: radial-gradient(circle at 70% 30%, #4a3b25 0%, #241a0e 60%, #0d0905 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     z-index: 1;
-    cursor: pointer; /* Invita sutilmente al usuario a cliquear la pantalla */
 }
 
-/* EFECTO DE ESTRELLAS FIJAS BLANCAS Y BRILLANTES */
-.xat-stars {
+/* TEXTURA DE EFECTO NEBULOSA GLITTER */
+.xat-nebula-texture {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(ellipse at 80% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(139, 121, 94, 0.1) 0%, transparent 60%);
+    transform: rotate(-15deg);
+    z-index: 2;
+}
+
+/* POLVO DE ESTRELLAS TEXTURIZADO */
+.xat-stars-dust {
     position: absolute;
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(#ffffff, rgba(255,255,255,.3) 2px, transparent 40px),
-        radial-gradient(#ffffff, rgba(255,255,255,.2) 1px, transparent 30px),
-        radial-gradient(#ffffff, rgba(255,255,255,.15) 2px, transparent 40px);
-    background-size: 550px 550px, 350px 350px, 250px 250px;
-    background-position: 0 0, 40px 60px, 130px 270px;
-    opacity: 0.75;
+        radial-gradient(#ffffff 1px, transparent 20px),
+        radial-gradient(rgba(212, 175, 55, 0.6) 1px, transparent 30px),
+        radial-gradient(#ffffff 1.5px, transparent 40px);
+    background-size: 300px 300px, 200px 200px, 450px 450px;
+    background-position: 0 0, 40px 120px, 150px 300px;
+    opacity: 0.55;
+    z-index: 3;
 }
 
-/* BLOQUE CENTRAL */
+/* BLOQUE CENTRAL CON TIPOGRAFÍA DEL MODELO */
 .xat-center-block {
     position: relative;
-    z-index: 10;
-    margin-bottom: 20px;
+    z-index: 20;
+    margin-bottom: 25px;
 }
 
-/* TIPOGRAFÍA DE "REI" EN COLOR #8B795E CON NEÓN INTEGRADO */
 .xat-name-rei {
     font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
-    font-size: 8rem;
-    color: #8B795E; /* Tu color seleccionado */
+    font-size: 8.5rem;
+    color: #8B795E;
     text-shadow: 
-        0 0 10px rgba(139, 121, 94, 0.8),
-        0 0 20px rgba(212, 175, 55, 0.6), /* Destello dorado suave */
-        0 0 40px rgba(20, 14, 6, 0.9);
-    letter-spacing: 2px;
-    line-height: 1;
+        0 0 15px rgba(212, 175, 55, 0.4),
+        0 0 30px rgba(139, 121, 94, 0.5),
+        2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: -1px;
+    line-height: 0.9;
     margin: 0;
     text-align: center;
     user-select: none;
 }
 
-/* DIVISOR ELEGANTE EN SINTONÍA CON EL NOMBRE */
+/* DIVISOR CON ADORNO DE TU REPOSITORIO */
 .xat-divider {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -10px;
-    opacity: 0.8;
+    margin-top: 5px;
+    opacity: 0.75;
 }
 
 .xat-divider::before, .xat-divider::after {
     content: "";
-    width: 70px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #8B795E);
-}
-
-.xat-divider::after {
-    background: linear-gradient(to left, transparent, #8B795E);
+    width: 90px;
+    height: 1.5px;
+    background: linear-gradient(to right, transparent, #8B795E 50%, transparent);
 }
 
 .xat-diamond {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background-color: #8B795E;
     transform: rotate(45deg);
-    margin: 0 10px;
-    box-shadow: 0 0 8px #8B795E;
+    margin: 0 15px;
+    box-shadow: 0 0 8px #d4af37;
 }
 
-/* CONTENEDOR DEL REPRODUCTOR FLOTANTE (Adaptado a tonos chocolate y oro) */
+/* REPRODUCTOR ESTILO DE TU DISEÑO (CRISTAL DORADO TRANSLÚCIDO) */
 .xat-player-container {
     position: absolute;
-    bottom: 50px;
+    bottom: 60px;
     display: flex;
     align-items: center;
-    background: rgba(20, 14, 6, 0.8);
-    border: 1px solid rgba(139, 121, 94, 0.3);
-    padding: 8px 24px 8px 10px;
-    border-radius: 30px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, rgba(43, 32, 17, 0.55) 0%, rgba(20, 14, 6, 0.75) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    padding: 10px 28px 10px 12px;
+    border-radius: 14px; /* Bordes ligeramente más cuadrados como en tu imagen */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.5);
     z-index: 100;
 }
 
-/* BOTÓN CIRCULAR DE CONTROL MÁRMOL/BLANCO */
+/* BOTÓN DE AUDIO DE TU DISEÑO */
 .xat-play-btn {
-    background: #ffffff;
+    background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 100%);
     border: none;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     outline: none;
 }
 
 .xat-play-btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
-/* ICONOS DINÁMICOS EN TONO MARRÓN OSCURO */
-.xat-icon-shape {
-    transition: all 0.1s ease;
-}
-
+/* ICONOS INTERNOS DEL BOTÓN */
+.xat-icon-shape { transition: all 0.1s ease; }
 .xat-state-play {
-    width: 0;
-    height: 0;
+    width: 0; height: 0;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-left: 10px solid #2b2011;
-    margin-left: 3px;
+    border-left: 9px solid #241a0e;
+    margin-left: 2px;
 }
-
-.xat-state-pause {
-    display: flex;
-    gap: 3px;
-}
+.xat-state-pause { display: flex; gap: 3px; }
 .xat-state-pause::before, .xat-state-pause::after {
-    content: "";
-    width: 3px;
-    height: 10px;
-    background-color: #2b2011;
+    content: ""; width: 3px; height: 10px; background-color: #241a0e;
 }
 
-/* INFORMACIÓN DEL TEXTO */
+/* TEXTOS DEL REPRODUCIR */
 .xat-song-info {
     display: flex;
     flex-direction: column;
-    margin-left: 14px;
+    margin-left: 16px;
     user-select: none;
 }
 
 .xat-song-title {
     color: #ffffff;
     font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
 }
 
 .xat-song-artist {
-    color: rgba(139, 121, 94, 0.8);
+    color: rgba(212, 175, 55, 0.7);
     font-size: 0.75rem;
-    margin-top: 1px;
+    margin-top: 2px;
 }
 
-/* ANIMACIÓN Y EFECTO DE ESTRELLAS FUGACES BLANCAS PURAS */
-.xat-shooting {
+/* ANIMACIÓN EN RÁFAGA RECTA DE ESTRELLAS FUGACES (Como tu foto) */
+.xat-shooting-star {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 4px;
-    height: 4px;
+    width: 3px;
+    height: 3px;
     background: #ffffff;
     border-radius: 50%;
-    box-shadow: 0 0 20px rgba(255,255,255,1);
-    animation: xatFly 4s linear infinite;
+    box-shadow: 0 0 15px 2px #ffffff;
+    animation: xatShower 4s linear infinite;
+    z-index: 4;
+    opacity: 0;
 }
 
-.xat-shooting::before {
+.xat-shooting-star::before {
     content: '';
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    width: 250px;
+    transform: translateY(-50%) rotate(-35deg);
+    width: 180px;
     height: 1px;
     background: linear-gradient(90deg, #ffffff, transparent);
+    transform-origin: left center;
 }
 
-.xat-shooting:nth-child(1) { top: 0px; right: 0px; left: initial; animation-delay: 0s; animation-duration: 3s; }
-.xat-shooting:nth-child(2) { top: 0px; right: 200px; left: initial; animation-delay: 0.5s; animation-duration: 4s; }
-.xat-shooting:nth-child(3) { top: 80px; right: 400px; left: initial; animation-delay: 1s; animation-duration: 2.5s; }
+/* Ajustes de sincronización para simular la ráfaga de la imagen */
+.xat-star-1 { top: -10%; right: 10%; animation-duration: 3.2s; animation-delay: 0s; }
+.xat-star-2 { top: -5%; right: 35%; animation-duration: 4.5s; animation-delay: 0.8s; }
+.xat-star-3 { top: -12%; right: 60%; animation-duration: 2.8s; animation-delay: 1.5s; }
+.xat-star-4 { top: 15%; right: -5%; animation-duration: 3.8s; animation-delay: 0.3s; }
+.xat-star-5 { top: -8%; right: 80%; animation-duration: 5.2s; animation-delay: 2s; }
+.xat-star-6 { top: 30%; right: -8%; animation-duration: 3s; animation-delay: 1.1s; }
 
-@keyframes xatFly {
-    0% { transform: rotate(315deg) translateX(0); opacity: 1; }
-    70% { opacity: 1; }
-    100% { transform: rotate(315deg) translateX(-1000px); opacity: 0; }
+@keyframes xatShower {
+    0% { transform: translate(0, 0) rotate(-35deg); opacity: 0; }
+    10% { opacity: 1; }
+    60% { opacity: 1; }
+    100% { transform: translate(-900px, 630px) rotate(-35deg); opacity: 0; }
 }
