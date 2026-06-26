@@ -8,15 +8,15 @@ body, html {
     font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* CONTENEDOR PRINCIPAL: GRADIE_NTE ORO LÍQUIDO CON APARICIÓN SUAVE */
+/* CONTENEDOR PRINCIPAL: GRADIENTE CROMO OSCURO PREMIUM */
 .xat-space-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Fusión de degradado radial: centro iluminado oro puro, bodes bronce profundo */
-    background: radial-gradient(circle at center, #9e824a 0%, #6e562f 60%, #423219 100%);
+    /* Transición elegante: centro gris oscuro metal, bordes negro absoluto */
+    background: radial-gradient(circle at center, #242526 0%, #111212 60%, #050505 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,7 +41,7 @@ body, html {
     margin-bottom: 25px;
 }
 
-/* "REI" EN COLOR #D4AF37 CON EFECTO DE LUZ SHIMMER CONSTANTE */
+/* "REI" EN COLOR PLATEADO CROMO CON EFECTO SHIMMER TIPO IMAGEN */
 .xat-name-rei-shimmer {
     font-family: 'Times New Roman', Times, serif;
     font-size: 8.5rem;
@@ -52,11 +52,11 @@ body, html {
     line-height: 0.9;
     letter-spacing: -1px;
 
-    /* Base metálica dorada premium */
-    color: #D4AF37; 
+    /* Base plateada metálica */
+    color: #d1d5db; 
     
-    /* Máscara de degradado líquido para el reflejo brillante tipo GIF */
-    background: linear-gradient(to right, #D4AF37 0%, #D4AF37 40%, #ffffff 50%, #D4AF37 60%, #D4AF37 100%);
+    /* Máscara de degradado líquido para el reflejo brillante cromado */
+    background: linear-gradient(to right, #9ca3af 0%, #d1d5db 40%, #ffffff 50%, #d1d5db 60%, #9ca3af 100%);
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
@@ -64,8 +64,8 @@ body, html {
     
     animation: xatGlowStreak 3.8s linear infinite;
     
-    /* Sombra de relieve pulida */
-    filter: drop-shadow(2px 3px 5px rgba(0, 0, 0, 0.5));
+    /* Sombra de relieve profunda para separarlo del fondo oscuro */
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.8));
 }
 
 @keyframes xatGlowStreak {
@@ -73,50 +73,50 @@ body, html {
     100% { background-position: -200% center; }
 }
 
-/* DIVISOR DORADO */
+/* DIVISOR DE PLATINO BRUÑIDO */
 .xat-divider {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 8px;
-    opacity: 0.85;
+    opacity: 0.75;
 }
 
 .xat-divider::before, .xat-divider::after {
     content: "";
     width: 95px;
     height: 1.5px;
-    background: linear-gradient(to right, transparent, #ffffff 50%, transparent);
+    background: linear-gradient(to right, transparent, #e5e7eb 50%, transparent);
 }
 
 .xat-diamond {
     width: 6px;
     height: 6px;
-    background-color: #ffffff;
+    background-color: #e5e7eb;
     transform: rotate(45deg);
     margin: 0 15px;
     box-shadow: 0 0 8px #ffffff;
 }
 
-/* REPRODUCTOR ESTILO CRISTAL ADAPTADO AL FONDO ORO */
+/* REPRODUCTOR ESTILO CRISTAL OSCURO SINTONIZADO */
 .xat-player-container {
     position: absolute;
     bottom: 60px;
     display: flex;
     align-items: center;
-    background: rgba(42, 32, 17, 0.45);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(17, 18, 18, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 10px 28px 10px 12px;
     border-radius: 14px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     z-index: 100;
 }
 
-/* BOTÓN DE CONTROL */
+/* BOTÓN DE CONTROL BLANCO METÁLICO */
 .xat-play-btn {
-    background: #ffffff;
+    background: #f3f4f6;
     border: none;
     width: 38px;
     height: 38px;
@@ -125,7 +125,7 @@ body, html {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
     outline: none;
 }
 
@@ -134,12 +134,12 @@ body, html {
     width: 0; height: 0;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-left: 9px solid #6e562f;
+    border-left: 9px solid #111212;
     margin-left: 2px;
 }
 .xat-state-pause { display: flex; gap: 3px; }
 .xat-state-pause::before, .xat-state-pause::after {
-    content: ""; width: 3px; height: 10px; background-color: #6e562f;
+    content: ""; width: 3px; height: 10px; background-color: #111212;
 }
 
 /* TEXTOS DEL REPRODUCTOR */
@@ -158,23 +158,21 @@ body, html {
 }
 
 .xat-song-artist {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(243, 244, 246, 0.65);
     font-size: 0.75rem;
     margin-top: 2px;
 }
 
-/* UNA ÚNICA ESTRELLA EN ÓRBITA LIMPIA SIN ESTELA */
+/* UNA ÚNICA ESTRELLA DE PLATINO EN ÓRBITA LIMPIA */
 .xat-single-star {
     position: absolute;
     width: 6px;
     height: 6px;
     background: #ffffff;
     border-radius: 50%;
-    box-shadow: 0 0 15px 4px #ffffff, 0 0 6px #D4AF37;
+    box-shadow: 0 0 15px 4px #ffffff, 0 0 4px #9ca3af;
     z-index: 5;
     opacity: 0;
-    
-    /* Animación limpia con intervalos amplios (reaparece cada 7 segundos) */
     animation: xatSingleStarPass 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
@@ -195,7 +193,6 @@ body, html {
         opacity: 0;
         transform: scale(0.5);
     }
-    /* Intervalo de descanso donde la pantalla se queda 100% limpia */
     100% {
         top: 20%;
         left: -10%;
