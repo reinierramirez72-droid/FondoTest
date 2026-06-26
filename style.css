@@ -15,8 +15,7 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Transición elegante: centro gris oscuro metal, bordes negro absoluto */
-    background: radial-gradient(circle at center, #242526 0%, #111212 60%, #050505 100%);
+    background-color: #050505; /* Fondo base negro absoluto */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,6 +26,25 @@ body, html {
     /* Animación de entrada elegante (Aparición lenta) */
     animation: xatFadeInSpace 2.5s ease-out forwards;
     opacity: 0;
+}
+
+/* EFECTO DE NEBLINA MÍSTICA O AURA DE HUMO PLATEADO EN MOVIMIENTO LENTO */
+.xat-space-container::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    /* Halo de luz de plata difuminado que imita el fondo de tu imagen */
+    background: radial-gradient(circle at 50% 50%, rgba(156, 163, 175, 0.08) 0%, rgba(36, 37, 38, 0.05) 50%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+    /* Animación orgánica ultra pausada para que el humo parezca vivo */
+    animation: xatMysticSmoke 18s ease-in-out infinite alternate;
+}
+
+@keyframes xatMysticSmoke {
+    0% { transform: translate(-5%, -5%) scale(1); }
+    100% { transform: translate(5%, 5%) scale(1.1); }
 }
 
 @keyframes xatFadeInSpace {
@@ -41,7 +59,7 @@ body, html {
     margin-bottom: 25px;
 }
 
-/* "REI" EN COLOR PLATEADO CROMO CON EFECTO SHIMMER TIPO IMAGEN */
+/* "REI" EN COLOR PLATEADO CROMO CON EFECTO SHIMMER */
 .xat-name-rei-shimmer {
     font-family: 'Times New Roman', Times, serif;
     font-size: 8.5rem;
@@ -163,39 +181,46 @@ body, html {
     margin-top: 2px;
 }
 
-/* UNA ÚNICA ESTRELLA DE PLATINO EN ÓRBITA LIMPIA */
+/* ESTRELLA DE PLATINO: MÁS LENTA Y CON EXTRA DE BRILLO NEÓN */
 .xat-single-star {
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 8px; /* Ligeramente más grande para que destaque */
+    height: 8px;
     background: #ffffff;
     border-radius: 50%;
-    box-shadow: 0 0 15px 4px #ffffff, 0 0 4px #9ca3af;
+    /* Múltiples capas de sombra blanca para darle un brillo cegador y limpio */
+    box-shadow: 
+        0 0 25px 6px #ffffff, 
+        0 0 12px 2px rgba(255, 255, 255, 0.8),
+        0 0 4px #9ca3af;
     z-index: 5;
     opacity: 0;
-    animation: xatSingleStarPass 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    
+    /* Subimos el tiempo de 7s a 11s para que su desplazamiento sea imponente y majestuoso */
+    animation: xatSingleStarPass 11s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
 
 @keyframes xatSingleStarPass {
     0% {
-        top: 20%;
-        left: -10%;
+        top: 25%;
+        left: -15%;
         opacity: 0;
         transform: scale(0.6);
     }
-    15% {
+    12% {
         opacity: 1;
-        transform: scale(1.3);
+        transform: scale(1.4); /* Crece al brillar en el centro */
     }
     45% {
-        top: 50%;
-        left: 110%;
+        top: 55%;
+        left: 115%;
         opacity: 0;
         transform: scale(0.5);
     }
+    /* Pausa limpia antes de la siguiente órbita */
     100% {
-        top: 20%;
-        left: -10%;
+        top: 25%;
+        left: -15%;
         opacity: 0;
     }
 }
