@@ -6,12 +6,14 @@
     <title>Xat Space - Ʀɛɨ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="xat-space-container" onclick="activarMusicaFondo()">
+    <div class="xat-space-container" onclick="activarMusicaFondo()" id="space-container">
+
+        <div class="xat-mouse-glow" id="mouse-glow"></div>
 
         <div class="xat-smoke-layer xat-smoke-1"></div>
         <div class="xat-smoke-layer xat-smoke-2"></div>
@@ -46,7 +48,19 @@
     <script>
         const miAudio = document.getElementById('xat-bg-audio');
         const miIcono = document.getElementById('xat-icon');
+        const contenedor = document.getElementById('space-container');
+        const luzFoco = document.getElementById('mouse-glow');
         let musicaIniciada = false;
+
+        // LÓGICA JAVASCRIPT PARA SEGUIR EL MOUSE
+        contenedor.addEventListener('mousemove', (e) => {
+            const rect = contenedor.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Movemos suavemente el centro del degradado a la posición del cursor
+            luzFoco.style.background = `radial-gradient(circle 250px at ${x}px ${y}px, rgba(255, 255, 255, 0.05) 0%, transparent 80%)`;
+        });
 
         function activarMusicaFondo() {
             if (!musicaIniciada) {
