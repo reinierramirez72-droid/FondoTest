@@ -8,14 +8,26 @@ body, html {
     font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* CONTENEDOR PRINCIPAL: NEGRO ABSOLUTO ESPACIAL */
+/* CONTENEDOR PRINCIPAL: EFECTO BANDERA ONDEANTE CON DEGRADADO CROMO Y NEGRO */
 .xat-space-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #050505;
+    
+    /* Mezcla lineal de negros, grises oscuros y destellos plateados metálicos */
+    background: linear-gradient(135deg, 
+        #050505 0%,   /* Negro Absoluto */
+        #1c1d1f 25%,  /* Gris Ceniza */
+        #4b4d52 50%,  /* Plateado Bruñido / Cromo */
+        #1c1d1f 75%,  /* Gris Ceniza de vuelta */
+        #050505 100%  /* Negro Absoluto */
+    );
+    
+    /* Hacemos el fondo mucho más grande para poder deslizarlo y crear el efecto ondeante */
+    background-size: 400% 400%; 
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,8 +35,24 @@ body, html {
     overflow: hidden;
     z-index: 1;
     
-    animation: xatFadeInSpace 2.5s ease-out forwards;
+    /* Animación de entrada + Animación de bandera líquida ondeando en bucle */
+    animation: 
+        xatFadeInSpace 2.5s ease-out forwards,
+        xatChromeWave 14s ease-in-out infinite;
     opacity: 0;
+}
+
+/* ANIMACIÓN QUE LOGRA EL EFECTO DE ONDULACIÓN SEDA/BANDERA */
+@keyframes xatChromeWave {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @keyframes xatFadeInSpace {
@@ -32,7 +60,7 @@ body, html {
     100% { opacity: 1; }
 }
 
-/* EFECTO DE HUMO DINÁMICO EN CAPAS MULTIDIRECCIONALES */
+/* EFECTO DE HUMO INTENSO EN CAPAS MULTIDIRECCIONALES */
 .xat-smoke-layer {
     position: absolute;
     width: 200%;
@@ -40,42 +68,42 @@ body, html {
     top: -50%;
     left: -50%;
     pointer-events: none;
-    opacity: 0.04; /* Ajuste sutil para que sea elegante y no sature la pantalla */
+    opacity: 0.12; 
     z-index: 2;
 }
 
 /* Capa 1: Humo denso flotando hacia la derecha */
 .xat-smoke-1 {
-    background: radial-gradient(circle at 30% 40%, #9ca3af 0%, transparent 40%),
-                radial-gradient(circle at 70% 60%, #e5e7eb 0%, transparent 35%);
+    background: radial-gradient(circle at 30% 40%, #9ca3af 0%, transparent 45%),
+                radial-gradient(circle at 70% 60%, #e5e7eb 0%, transparent 40%);
     animation: xatSmokeMove1 24s linear infinite alternate;
 }
 
 /* Capa 2: Neblina baja cruzada */
 .xat-smoke-2 {
-    background: radial-gradient(circle at 50% 30%, #6b7280 0%, transparent 45%),
-                radial-gradient(circle at 20% 70%, #9ca3af 0%, transparent 40%);
+    background: radial-gradient(circle at 50% 30%, #6b7280 0%, transparent 50%),
+                radial-gradient(circle at 20% 70%, #9ca3af 0%, transparent 45%);
     animation: xatSmokeMove2 30s linear infinite alternate;
 }
 
-/* Capa 3: Micro-auras alrededor del texto */
+/* Capa 3: Aura detrás de la tipografía */
 .xat-smoke-3 {
-    background: radial-gradient(circle at 50% 50%, #f3f4f6 0%, transparent 25%);
-    opacity: 0.06;
+    background: radial-gradient(circle at 50% 50%, #ffffff 0%, transparent 30%);
+    opacity: 0.15;
     animation: xatSmokeMove3 14s ease-in-out infinite alternate;
 }
 
 @keyframes xatSmokeMove1 {
     0% { transform: translate(-5%, -5%) rotate(0deg) scale(1); }
-    100% { transform: translate(5%, 5%) rotate(10deg) scale(1.1); }
+    100% { transform: translate(5%, 5%) rotate(8deg) scale(1.15); }
 }
 @keyframes xatSmokeMove2 {
-    0% { transform: translate(5%, -3%) rotate(0deg) scale(1.1); }
-    100% { transform: translate(-5%, 5%) rotate(-8deg) scale(1); }
+    0% { transform: translate(5%, -3%) rotate(0deg) scale(1.15); }
+    100% { transform: translate(-5%, 5%) rotate(-6deg) scale(1); }
 }
 @keyframes xatSmokeMove3 {
-    0% { transform: scale(0.95); opacity: 0.03; }
-    100% { transform: scale(1.15); opacity: 0.07; }
+    0% { transform: scale(0.9); opacity: 0.08; }
+    100% { transform: scale(1.2); opacity: 0.18; }
 }
 
 /* BLOQUE CENTRAL */
@@ -86,31 +114,33 @@ body, html {
     text-align: center;
 }
 
-/* Ʀɛɨ EN TIPOGRAFÍA GÓTICA METÁLICA CON CROMO SHIMMER */
+/* Ʀɛɨ EN CURSIVA ULTRA ELEGANTE */
 .xat-name-rei-shimmer {
-    font-family: 'Cinzel Decorative', 'Uncial Antiqua', 'Times New Roman', serif;
-    font-size: 8.5rem;
-    font-weight: 700;
+    font-family: 'Monsieur La Doulaise', cursive, serif;
+    font-size: 11rem;
+    font-weight: 500;
     margin: 0;
     text-align: center;
     user-select: none;
-    line-height: 1.1; /* Un poco más alto para dar aire a los caracteres góticos */
-    letter-spacing: 3px; /* Espaciado premium entre letras oscuras */
+    line-height: 1.2;
+    padding: 10px 30px;
+    display: block;
+    letter-spacing: 1px;
 
-    /* Color base plata de ley */
+    /* Base plateada pulida */
     color: #d1d5db; 
     
-    /* Máscara de degradado líquido tipo GIF */
+    /* Máscara de degradado metálico shimmer */
     background: linear-gradient(to right, #9ca3af 0%, #d1d5db 40%, #ffffff 50%, #d1d5db 60%, #9ca3af 100%);
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
-    animation: xatGlowStreak 4s linear infinite;
+    animation: xatGlowStreak 3.8s linear infinite;
     
-    /* Aura plateada/blanca difuminada que simula el destello del metal pulido entre el humo */
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.25)) drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.9));
+    /* Sombra de alto contraste para despegar los trazos finos del humo y fondo */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)) drop-shadow(3px 4px 6px rgba(0, 0, 0, 0.85));
 }
 
 @keyframes xatGlowStreak {
@@ -123,7 +153,7 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: -10px;
     opacity: 0.75;
 }
 
@@ -149,8 +179,8 @@ body, html {
     bottom: 60px;
     display: flex;
     align-items: center;
-    background: rgba(17, 18, 18, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(17, 18, 18, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 10px 28px 10px 12px;
     border-radius: 14px;
     backdrop-filter: blur(12px);
